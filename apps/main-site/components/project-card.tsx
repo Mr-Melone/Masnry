@@ -15,7 +15,7 @@ export function ProjectCard({
 }) {
   if (variant === "feature") {
     return (
-      <Link href={`/projects/${project.slug}`} className={cn("group block", className)}>
+      <Link href={`/projects/${project.demo-barbershop}`} className={cn("group block", className)}>
         <article className="cinematic-panel grid overflow-hidden rounded-lg lg:grid-cols-[1.1fr_0.9fr]">
           <div className="relative min-h-80 overflow-hidden lg:min-h-[34rem]">
             <Image
