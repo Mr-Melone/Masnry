@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MASNRY | Projects, Experiments, Design And Code",
     description:
-      "A dark, cinematic archive of digital projects, experiments, design systems, code, and things made for the internet.",
+      "A cinematic archive of digital projects, experiments, design systems, code, and things made for the internet.",
     url: "https://masnry.com",
     siteName: "MASNRY",
     type: "website"

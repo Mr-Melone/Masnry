@@ -40,7 +40,7 @@ export default function BarberDemoPage() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-background/72 backdrop-blur-xl">
         <Container className="flex h-16 items-center justify-between">
           <Link href="#" className="font-display text-2xl font-semibold">
-            Atlas
+            Kahil
           </Link>
           <nav className="hidden items-center gap-7 text-sm text-muted-foreground md:flex">
             <Link href="#services" className="hover:text-foreground">
@@ -65,7 +65,7 @@ export default function BarberDemoPage() {
       <section className="relative min-h-screen pt-16">
         <Image
           src={heroImage}
-          alt="Atlas Barber Studio interior and barber chair"
+          alt="Kahil Barber Studio interior and barber chair"
           fill
           priority
           className="object-cover"
@@ -82,7 +82,7 @@ export default function BarberDemoPage() {
               Sharp cuts. Quiet luxury. Easy booking.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-white/72">
-              Atlas Barber Studio combines traditional grooming, modern style, and
+              Kahil Barber Studio combines traditional grooming, modern style, and
               a booking experience built for customers who value precision.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -195,7 +195,7 @@ export default function BarberDemoPage() {
                 <div className="relative aspect-[4/5] overflow-hidden rounded-lg border border-border">
                   <Image
                     src={src}
-                    alt="Atlas Barber Studio gallery"
+                    alt="Kahil Barber Studio gallery"
                     fill
                     className="object-cover transition-transform duration-700 hover:scale-105"
                     sizes="(min-width: 768px) 33vw, 100vw"
@@ -286,7 +286,7 @@ export default function BarberDemoPage() {
 
       <footer className="border-t border-border">
         <Container className="flex flex-col gap-4 py-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-display text-2xl font-semibold">Atlas</p>
+          <p className="font-display text-2xl font-semibold">Kahil</p>
           <p className="text-sm text-muted-foreground">
             Demo website by MASNRY. Ready to customize for a real barber shop.
           </p>
