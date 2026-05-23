@@ -94,8 +94,8 @@ export default function HomePage() {
           <Reveal>
             <div className="cinematic-panel rounded-lg p-6 sm:p-8 lg:p-10">
               <p className="max-w-5xl font-display text-2xl font-medium leading-snug text-foreground/90 sm:text-3xl">
-                MASNRY is less of an agency pitch and more of a curated workspace:
-                a place to collect polished builds, rough ideas, visual systems,
+                MASNRY is a curated workspace:
+                a place to find and create polished builds, rough innovative ideas, visual systems,
                 useful objects, and digital fragments.
               </p>
             </div>
