@@ -8,7 +8,7 @@ import { SectionHeading } from "@/components/section-heading";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about MASNRY, a premium independent web design and development brand for modern local businesses."
+    "Learn about MASNRY, a personal creative development portfolio for projects, experiments, design, code, and digital work."
 };
 
 const values = [
@@ -19,8 +19,8 @@ const values = [
   },
   {
     icon: Compass,
-    title: "Commercial clarity",
-    body: "A website is judged by how quickly it helps a customer understand, trust, and act."
+    title: "Useful clarity",
+    body: "Even experimental work should be understandable, usable, and easy to come back to."
   },
   {
     icon: Hammer,
@@ -38,13 +38,13 @@ export default function AboutPage() {
             <Reveal>
               <Badge>About MASNRY</Badge>
               <h1 className="mt-6 font-display text-4xl font-semibold tracking-normal sm:text-6xl">
-                Independent web design with a studio-level standard.
+                A place for the things I make.
               </h1>
               <p className="mt-6 text-lg leading-8 text-muted-foreground">
-                MASNRY is a personal brand and service platform for modern websites,
-                polished demo projects, and technical creativity. The goal is simple:
-                help local businesses look sharper, communicate faster, and convert
-                more of the people already paying attention.
+                MASNRY is a personal creative development space for websites,
+                interface experiments, design systems, 3D printing notes, and
+                whatever else feels worth building. It can support client work,
+                but it starts as an honest archive of output.
               </p>
             </Reveal>
             <Reveal delay={0.1}>
@@ -66,8 +66,8 @@ export default function AboutPage() {
         <Container>
           <SectionHeading
             eyebrow="Why this exists"
-            title="Local businesses deserve better than stale templates."
-            body="A lot of great businesses have weak websites because the process feels expensive, confusing, or disconnected from what actually wins customers. MASNRY is built to close that gap with polished demos, fast delivery, and clear systems."
+            title="Not everything needs to be a polished case study."
+            body="Some things are finished projects. Some are experiments. Some are notes for later. MASNRY gives all of that a clean home instead of hiding it in folders."
           />
         </Container>
       </Section>
@@ -77,14 +77,14 @@ export default function AboutPage() {
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
             <SectionHeading
               eyebrow="Philosophy"
-              title="Make the business feel like the best version of itself."
-              body="The work sits between brand, interface, and sales. It should look premium, load quickly, and guide a real visitor toward a real action."
+              title="Make the work feel considered."
+              body="The thread is simple: strong type, useful structure, clean interaction, a bit of atmosphere, and enough restraint to let the work breathe."
             />
             <div className="grid gap-5">
               {[
                 "Strong typography before decoration",
                 "Mobile-first decisions before desktop polish",
-                "Clear offers before clever language",
+                "Clear structure before clever language",
                 "Reusable systems before one-off pages"
               ].map((item) => (
                 <Card key={item} className="flex items-center gap-4 bg-card/80 p-5">

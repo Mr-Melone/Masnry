@@ -32,7 +32,7 @@ export function SiteNav() {
       className={cn(
         "sticky top-0 z-50 transition-all",
         scrolled
-          ? "border-b border-border/80 bg-background/82 shadow-sm backdrop-blur-xl"
+          ? "border-b border-white/10 bg-background/72 shadow-2xl shadow-black/20 backdrop-blur-xl"
           : "bg-transparent"
       )}
     >
@@ -57,7 +57,7 @@ export function SiteNav() {
         <div className="hidden items-center gap-2 md:flex">
           <ThemeToggle />
           <Button asChild>
-            <Link href="/contact">Start a project</Link>
+            <Link href="/contact">Say hi</Link>
           </Button>
         </div>
         <div className="flex items-center gap-2 md:hidden">
@@ -90,7 +90,7 @@ export function SiteNav() {
             ))}
             <Button asChild className="mt-2">
               <Link href="/contact" onClick={() => setOpen(false)}>
-                Start a project
+                Say hi
               </Link>
             </Button>
           </Container>

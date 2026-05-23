@@ -9,36 +9,36 @@ import { SectionHeading } from "@/components/section-heading";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Website design, development, 3D printing services, and technical creative support from MASNRY."
+    "Ways MASNRY can help with websites, prototypes, 3D printing, and technical creative work."
 };
 
 const services = [
   {
     icon: Code2,
     title: "Website design & development",
-    body: "Premium responsive websites for local businesses, personal brands, and service providers.",
-    points: ["Strategy-led layout", "Next.js development", "SEO metadata", "Vercel deployment"]
+    body: "Small, polished websites and prototypes when the fit is right.",
+    points: ["Visual direction", "Next.js development", "Responsive UI", "Vercel deployment"]
   },
   {
     icon: Box,
     title: "3D printing services",
-    body: "A home for future product prototypes, practical prints, custom parts, and technical showcases.",
-    points: ["Project gallery", "Quote-ready inquiry flow", "Material notes", "Future ecommerce path"]
+    body: "Practical prints, objects, parts, tests, and physical experiments.",
+    points: ["Prototype notes", "Material thinking", "Object archive", "Future quote flow"]
   }
 ];
 
 const faqs = [
   [
-    "Can a demo become a real client website?",
-    "Yes. The workflow is built around duplicating demos, customizing the brand/content, and deploying a production version."
+    "Can a demo become a real website?",
+    "Yes. A polished demo can be duplicated, customized, connected to a domain, and deployed as its own production site."
   ],
   [
     "Do you handle domains and deployment?",
     "Yes. Each app can be connected to Vercel, then mapped to a client domain when the project is ready."
   ],
   [
-    "Can the site scale with more projects?",
-    "Yes. The portfolio uses reusable components and data-driven project entries so new demos can be added quickly."
+    "Can the archive keep growing?",
+    "Yes. Projects are data-driven, so new builds, experiments, and notes can be added without redesigning the page."
   ]
 ];
 
@@ -49,8 +49,8 @@ export default function ServicesPage() {
         <Container>
           <SectionHeading
             eyebrow="Services"
-            title="A practical service platform for websites and technical creativity."
-            body="MASNRY starts with premium websites for local businesses and leaves room for 3D printing projects, personal builds, and future client systems."
+            title="A few ways this work can become useful."
+            body="MASNRY is a personal archive first. Services sit inside that world: websites, prototypes, 3D printing, and technical creative help when a project makes sense."
           />
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {services.map((service, index) => (
@@ -71,7 +71,7 @@ export default function ServicesPage() {
                   </div>
                   <Button asChild className="mt-7">
                     <Link href="/contact">
-                      Inquire now <ArrowRight />
+                      Ask about it <ArrowRight />
                     </Link>
                   </Button>
                 </Card>
@@ -86,15 +86,15 @@ export default function ServicesPage() {
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
             <SectionHeading
               eyebrow="Benefits"
-              title="Built to make the next business move easier."
-              body="A good website gives a business owner more leverage: better first impressions, clearer offers, and a cleaner path to booking or inquiry."
+              title="Useful without becoming too corporate."
+              body="The goal is still practical: make clean things, document them well, and keep the structure ready for real use."
             />
             <div className="grid gap-4 sm:grid-cols-2">
               {[
-                "Premium visual credibility",
-                "Better mobile conversion",
+                "Premium visual direction",
+                "Mobile-first interfaces",
                 "Reusable launch systems",
-                "Clear domain and deployment path"
+                "Clean domain and deployment path"
               ].map((benefit) => (
                 <Card key={benefit} className="bg-background/60 p-5">
                   <Rocket className="size-5 text-primary" />
@@ -110,7 +110,7 @@ export default function ServicesPage() {
         <Container>
           <Badge>FAQ</Badge>
           <h2 className="mt-5 font-display text-3xl font-semibold sm:text-4xl">
-            Clear answers before the first call.
+            A few practical notes.
           </h2>
           <div className="mt-10 grid gap-4">
             {faqs.map(([question, answer]) => (

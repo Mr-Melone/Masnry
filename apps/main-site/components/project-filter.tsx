@@ -29,9 +29,17 @@ export function ProjectFilter({ projects }: { projects: Project[] }) {
           </Button>
         ))}
       </div>
-      <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {filtered.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
+      <div className="mt-6 text-sm text-muted-foreground">
+        {filtered.length} {filtered.length === 1 ? "piece" : "pieces"} in view
+      </div>
+      <div className="mt-8 grid auto-rows-fr gap-6 md:grid-cols-2 xl:grid-cols-6">
+        {filtered.map((project, index) => (
+          <ProjectCard
+            key={project.slug}
+            project={project}
+            className={index === 0 ? "md:col-span-2 xl:col-span-4" : "xl:col-span-2"}
+            variant={index === 0 ? "feature" : "default"}
+          />
         ))}
       </div>
     </div>

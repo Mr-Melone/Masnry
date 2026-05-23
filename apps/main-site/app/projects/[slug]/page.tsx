@@ -34,6 +34,7 @@ export function generateMetadata({
 export default function ProjectDetailPage({ params }: { params: { slug: string } }) {
   const project = getProjectBySlug(params.slug);
   if (!project) notFound();
+  const isExternalDemo = project.liveDemoUrl.startsWith("http");
 
   return (
     <PageTransition>
@@ -52,13 +53,16 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button asChild size="lg">
-                  <Link href={project.liveDemoUrl} target="_blank">
-                    Live demo <ExternalLink />
+                  <Link
+                    href={project.liveDemoUrl}
+                    target={isExternalDemo ? "_blank" : undefined}
+                  >
+                    Open work <ExternalLink />
                   </Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
                   <Link href="/contact">
-                    Build something similar <ArrowRight />
+                    Say hi <ArrowRight />
                   </Link>
                 </Button>
               </div>
@@ -79,9 +83,11 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
 
       <Section className="bg-card/35">
         <Container>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
             {[
               ["Business type", project.businessType],
+              ["Role", project.role],
+              ["Year", project.year],
               ["Accent", project.accent],
               ["Category", project.category]
             ].map(([label, value]) => (
@@ -101,13 +107,13 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
           <div className="grid gap-8 lg:grid-cols-2">
             <Reveal>
               <Card className="h-full bg-card/80 p-8">
-                <h2 className="font-display text-3xl font-semibold">Problem solved</h2>
+                <h2 className="font-display text-3xl font-semibold">Why it exists</h2>
                 <p className="mt-5 leading-8 text-muted-foreground">{project.problem}</p>
               </Card>
             </Reveal>
             <Reveal delay={0.08}>
               <Card className="h-full bg-card/80 p-8">
-                <h2 className="font-display text-3xl font-semibold">Solution</h2>
+                <h2 className="font-display text-3xl font-semibold">Shape of it</h2>
                 <p className="mt-5 leading-8 text-muted-foreground">
                   {project.solution}
                 </p>
@@ -121,14 +127,14 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
         <Container>
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
             <div>
-              <Badge>Responsive showcase</Badge>
+              <Badge>Responsive view</Badge>
               <h2 className="mt-5 font-display text-3xl font-semibold sm:text-4xl">
-                Designed to sell on a phone first.
+                Built to hold up across screens.
               </h2>
               <p className="mt-4 leading-8 text-muted-foreground">
-                Most local customers discover businesses on mobile. This demo keeps
-                the booking path visible, tap targets generous, and content easy to
-                scan on smaller screens.
+                The archive needs to feel good on a phone, laptop, and tablet.
+                Each project page keeps imagery large, text readable, and actions
+                easy to reach.
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-[0.7fr_1fr] sm:items-end">
@@ -162,7 +168,7 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
         <Container>
           <Badge>Features</Badge>
           <h2 className="mt-5 font-display text-3xl font-semibold sm:text-4xl">
-            Built for the way a real customer decides.
+            Notes from the build.
           </h2>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {project.features.map((feature) => (

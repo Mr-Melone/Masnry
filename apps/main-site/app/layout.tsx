@@ -20,15 +20,15 @@ const display = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL("https://masnry.com"),
   title: {
-    default: "MASNRY | Premium Websites For Modern Local Businesses",
+    default: "MASNRY | Projects, Experiments, Design And Code",
     template: "%s | MASNRY"
   },
   description:
-    "MASNRY designs and develops high-converting modern websites, demo prototypes, and digital systems for ambitious local businesses.",
+    "MASNRY is a personal creative development portfolio for projects, experiments, design, code, 3D printing, and digital ideas.",
   openGraph: {
-    title: "MASNRY | Premium Websites For Modern Local Businesses",
+    title: "MASNRY | Projects, Experiments, Design And Code",
     description:
-      "Modern web design, development, and technical creativity for local businesses ready to stand out.",
+      "A dark, cinematic archive of digital projects, experiments, design systems, code, and things made for the internet.",
     url: "https://masnry.com",
     siteName: "MASNRY",
     type: "website"
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "MASNRY",
-    description: "Modern websites for businesses that want to stand out."
+    description: "Projects, experiments, design, code, and digital work."
   }
 };
 
@@ -52,9 +52,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${inter.variable} ${display.variable}`}>
         <Providers>
           <div className="relative min-h-screen overflow-hidden">
-            <div className="surface-line pointer-events-none absolute inset-x-0 top-0 h-[42rem] opacity-40" />
+            <div className="surface-line pointer-events-none absolute inset-x-0 top-0 h-[48rem] opacity-30" />
             <SiteNav />
-            <main>{children}</main>
+            <main className="relative z-10">{children}</main>
             <Footer />
           </div>
         </Providers>

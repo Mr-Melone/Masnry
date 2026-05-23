@@ -10,7 +10,7 @@ import { Button, Input, Label, Textarea } from "@masnry/ui";
 const inquirySchema = z.object({
   name: z.string().min(2, "Add your name"),
   email: z.string().email("Use a valid email"),
-  business: z.string().min(2, "Add the business name"),
+  business: z.string().min(2, "Add a project, business, or idea"),
   service: z.string().min(2, "Choose a project type"),
   budget: z.string().min(2, "Choose a budget range"),
   message: z.string().min(20, "Share a little more context")
@@ -28,8 +28,8 @@ export function ContactForm() {
   } = useForm<InquiryValues>({
     resolver: zodResolver(inquirySchema),
     defaultValues: {
-      service: "Website design and development",
-      budget: "$1,500 - $3,000"
+      service: "Website or interface project",
+      budget: "Not sure yet"
     }
   });
 
@@ -46,11 +46,11 @@ export function ContactForm() {
           <Input placeholder="Your name" {...register("name")} />
         </Field>
         <Field label="Email" error={errors.email?.message}>
-          <Input placeholder="you@business.com" type="email" {...register("email")} />
+          <Input placeholder="you@example.com" type="email" {...register("email")} />
         </Field>
       </div>
-      <Field label="Business" error={errors.business?.message}>
-        <Input placeholder="Business name or idea" {...register("business")} />
+      <Field label="Project, business, or idea" error={errors.business?.message}>
+        <Input placeholder="A short name for the thing" {...register("business")} />
       </Field>
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Project type" error={errors.service?.message}>
@@ -58,34 +58,35 @@ export function ContactForm() {
             className="h-12 w-full rounded-lg border border-input bg-background/60 px-4 text-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             {...register("service")}
           >
-            <option>Website design and development</option>
-            <option>Website redesign</option>
+            <option>Website or interface project</option>
             <option>Demo customization</option>
-            <option>3D printing services</option>
+            <option>3D printing or object work</option>
+            <option>Creative technical experiment</option>
             <option>Not sure yet</option>
           </select>
         </Field>
-        <Field label="Budget" error={errors.budget?.message}>
+        <Field label="Range" error={errors.budget?.message}>
           <select
             className="h-12 w-full rounded-lg border border-input bg-background/60 px-4 text-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             {...register("budget")}
           >
+            <option>Not sure yet</option>
             <option>$1,500 - $3,000</option>
             <option>$3,000 - $6,000</option>
             <option>$6,000+</option>
-            <option>Ongoing support</option>
+            <option>Ongoing or open-ended</option>
           </select>
         </Field>
       </div>
       <Field label="Project details" error={errors.message?.message}>
         <Textarea
-          placeholder="Tell me what you want the website or project to achieve."
+          placeholder="Tell me what you are thinking about, what exists already, and what kind of help would be useful."
           {...register("message")}
         />
       </Field>
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <Button type="submit" size="lg" disabled={isSubmitting}>
-          Send inquiry <Send />
+          Send note <Send />
         </Button>
         <p className="text-sm text-muted-foreground">
           Calendly and email delivery can be connected with environment variables.

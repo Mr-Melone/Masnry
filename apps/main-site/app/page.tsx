@@ -1,107 +1,87 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  BadgeCheck,
-  Code2,
-  Layers3,
-  PenTool,
-  Sparkles
-} from "lucide-react";
+import { ArrowRight, Box, Code2, Monitor, Sparkles } from "lucide-react";
 import { Badge, Button, Card, Container, Section } from "@masnry/ui";
-import { CtaBand } from "@/components/cta-band";
 import { ProjectCard } from "@/components/project-card";
-import { Reveal, PageTransition } from "@/components/reveal";
-import { SectionHeading } from "@/components/section-heading";
+import { PageTransition, Reveal } from "@/components/reveal";
 import { projects } from "@/content/projects";
 
-const services = [
-  {
-    icon: PenTool,
-    title: "Website design",
-    body: "Premium, conversion-aware layouts that make local businesses feel current and credible."
-  },
+const featuredProject = projects.find(
+  (project) => project.slug === "atlas-barber-studio"
+);
+
+const threads = [
   {
     icon: Code2,
-    title: "Next.js development",
-    body: "Fast, responsive builds with clean architecture, SEO foundations, and Vercel-ready deployment."
+    title: "Code",
+    body: "Interfaces, motion, systems, and frontend experiments."
   },
   {
-    icon: Layers3,
-    title: "Demo systems",
-    body: "Prototype websites designed to show real businesses what a sharper digital presence could look like."
+    icon: Monitor,
+    title: "Web",
+    body: "Demo sites, personal pages, and small digital products."
+  },
+  {
+    icon: Box,
+    title: "Objects",
+    body: "3D printing notes, practical parts, prototypes, and studies."
   }
-];
-
-const process = [
-  "Position the offer",
-  "Design the buying path",
-  "Build the site",
-  "Launch and refine"
 ];
 
 export default function HomePage() {
   return (
     <PageTransition>
-      <Section className="relative min-h-[calc(100vh-4rem)] overflow-hidden py-16 sm:py-20 lg:py-24">
-        <Container className="relative grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <Section className="relative min-h-[calc(100vh-4rem)] overflow-hidden py-14 sm:py-20 lg:py-24">
+        <Container className="relative grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <Reveal>
             <Badge className="border-primary/25 bg-primary/10 text-primary">
-              Premium websites for local businesses
+              MASNRY / personal studio
             </Badge>
-            <h1 className="mt-6 max-w-4xl font-display text-5xl font-semibold leading-[1.02] tracking-normal sm:text-6xl lg:text-7xl">
-              Modern websites for businesses that want to stand out.
+            <h1 className="text-balance mt-6 max-w-4xl font-display text-5xl font-semibold leading-[1.02] tracking-normal sm:text-6xl lg:text-7xl">
+              Building things for the internet.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
-              MASNRY creates polished, high-converting websites and demo systems for
-              cafes, barbers, gyms, salons, restaurants, and service businesses ready
-              to look as good online as they are in person.
+            <p className="mt-6 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
+              Projects, experiments, design, code, 3D printing, and digital work.
+              A place for what I make, what I am learning, and what is next.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button asChild size="lg">
-                <Link href="/contact">
-                  Start a project <ArrowRight />
+                <Link href="/projects">
+                  Browse projects <ArrowRight />
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link href="/projects">View projects</Link>
+                <Link href="/about">About MASNRY</Link>
               </Button>
             </div>
-            <div className="mt-10 grid gap-4 sm:grid-cols-3">
-              {["Design-led", "Built fast", "Conversion-focused"].map((item) => (
-                <div key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <BadgeCheck className="size-4 text-primary" />
-                  {item}
-                </div>
-              ))}
+            <div className="mt-10 flex flex-wrap gap-2">
+              {["Design", "Code", "3D printing", "Experiments", "Web demos"].map(
+                (item) => (
+                  <Badge key={item}>{item}</Badge>
+                )
+              )}
             </div>
           </Reveal>
+
           <Reveal delay={0.12}>
-            <div className="relative">
-              <div className="absolute -inset-8 rounded-full bg-primary/20 blur-3xl" />
-              <div className="relative overflow-hidden rounded-lg border border-border bg-card shadow-2xl shadow-primary/10">
+            <div className="cinematic-panel noise-panel relative overflow-hidden rounded-lg p-3">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-md">
                 <Image
-                  src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1400&q=80"
-                  alt="Premium barber website demo preview"
-                  width={1100}
-                  height={900}
+                  src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1500&q=80"
+                  alt="Abstract dark digital workspace"
+                  fill
                   priority
-                  className="aspect-[4/3] object-cover"
+                  className="object-cover opacity-[0.84]"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
                 />
-                <div className="absolute inset-x-4 bottom-4 rounded-lg border border-white/15 bg-black/72 p-4 text-white backdrop-blur-xl">
-                  <div className="flex items-center justify-between gap-4">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.18em] text-white/60">
-                        Featured demo
-                      </p>
-                      <p className="mt-1 font-display text-lg font-semibold">
-                        Atlas Barber Studio
-                      </p>
-                    </div>
-                    <Button asChild size="sm">
-                      <Link href="/projects/atlas-barber-studio">Open</Link>
-                    </Button>
-                  </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/86 via-black/26 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 rounded-lg border border-white/10 bg-black/54 p-4 text-white backdrop-blur-xl">
+                  <p className="text-xs uppercase tracking-[0.2em] text-white/52">
+                    Current mode
+                  </p>
+                  <p className="mt-2 font-display text-2xl font-semibold">
+                    Interfaces, prototypes, and small experiments.
+                  </p>
                 </div>
               </div>
             </div>
@@ -109,58 +89,55 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section className="border-y border-border bg-card/35 py-14">
+      <Section className="py-12">
         <Container>
           <Reveal>
-            <p className="max-w-5xl font-display text-2xl font-medium leading-snug sm:text-3xl">
-              A sharp website should do more than look polished. It should make the
-              offer obvious, build trust quickly, and give customers a clear next move.
-            </p>
+            <div className="cinematic-panel rounded-lg p-6 sm:p-8 lg:p-10">
+              <p className="max-w-5xl font-display text-2xl font-medium leading-snug text-foreground/90 sm:text-3xl">
+                MASNRY is less of an agency pitch and more of a curated workspace:
+                a place to collect polished builds, rough ideas, visual systems,
+                useful objects, and digital fragments.
+              </p>
+            </div>
           </Reveal>
         </Container>
       </Section>
 
-      <Section>
-        <Container>
-          <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-            <SectionHeading
-              eyebrow="Featured work"
-              title="Demo websites built like real client launches."
-              body="Each prototype is designed as a practical sales tool: polished enough to show a business owner, structured enough to duplicate later."
-            />
-            <Button asChild variant="outline">
-              <Link href="/projects">
-                All projects <ArrowRight />
-              </Link>
-            </Button>
-          </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project) => (
-              <Reveal key={project.slug}>
-                <ProjectCard project={project} />
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </Section>
+      {featuredProject ? (
+        <Section>
+          <Container>
+            <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+              <div>
+                <Badge>Featured build</Badge>
+                <h2 className="text-balance mt-5 max-w-3xl font-display text-3xl font-semibold tracking-normal sm:text-4xl">
+                  One project in focus.
+                </h2>
+              </div>
+              <Button asChild variant="outline">
+                <Link href="/projects">
+                  Open the archive <ArrowRight />
+                </Link>
+              </Button>
+            </div>
+            <Reveal>
+              <ProjectCard project={featuredProject} variant="feature" />
+            </Reveal>
+          </Container>
+        </Section>
+      ) : null}
 
-      <Section className="bg-card/35">
+      <Section className="py-16">
         <Container>
-          <SectionHeading
-            eyebrow="Services"
-            title="Design, development, and technical creativity under one brand."
-            body="MASNRY is built to handle modern website builds now, then expand into client projects, 3D printing services, and technical showcases over time."
-          />
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {services.map((service, index) => (
-              <Reveal key={service.title} delay={index * 0.06}>
-                <Card className="h-full bg-background/60 p-6">
-                  <service.icon className="size-6 text-primary" />
+          <div className="grid gap-6 md:grid-cols-3">
+            {threads.map((thread, index) => (
+              <Reveal key={thread.title} delay={index * 0.06}>
+                <Card className="cinematic-panel h-full bg-transparent p-6">
+                  <thread.icon className="size-6 text-primary" />
                   <h3 className="mt-5 font-display text-xl font-semibold">
-                    {service.title}
+                    {thread.title}
                   </h3>
                   <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                    {service.body}
+                    {thread.body}
                   </p>
                 </Card>
               </Reveal>
@@ -169,64 +146,32 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section>
+      <Section className="pb-20 pt-8">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-            <SectionHeading
-              eyebrow="Process"
-              title="Simple enough to move quickly. Structured enough to scale."
-              body="Every build starts with the commercial goal, then moves into design, implementation, deployment, and handoff."
-            />
-            <div className="grid gap-4 sm:grid-cols-2">
-              {process.map((step, index) => (
-                <Reveal key={step} delay={index * 0.06}>
-                  <Card className="h-full bg-card/80 p-6">
-                    <div className="flex size-10 items-center justify-center rounded-full bg-primary/12 text-sm font-semibold text-primary">
-                      {index + 1}
-                    </div>
-                    <h3 className="mt-5 font-display text-xl font-semibold">{step}</h3>
-                    <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                      {index === 0 &&
-                        "Clarify the audience, offer, positioning, and conversion goal."}
-                      {index === 1 &&
-                        "Map the sections, proof points, calls to action, and mobile path."}
-                      {index === 2 &&
-                        "Develop a fast, responsive Next.js site with reusable components."}
-                      {index === 3 &&
-                        "Deploy on Vercel, connect domains, and tune the site after launch."}
-                    </p>
-                  </Card>
-                </Reveal>
-              ))}
+          <div className="grid gap-8 lg:grid-cols-[1fr_0.75fr] lg:items-center">
+            <div>
+              <Badge className="border-primary/25 bg-primary/10 text-primary">
+                Archive first
+              </Badge>
+              <h2 className="text-balance mt-5 font-display text-3xl font-semibold sm:text-5xl">
+                The projects page is the center of the site.
+              </h2>
+            </div>
+            <div className="space-y-5">
+              <p className="leading-8 text-muted-foreground">
+                Website work is still part of MASNRY, but it sits beside the rest
+                of the creative output: experiments, systems, prototypes, notes,
+                and things that do not need to fit a neat category.
+              </p>
+              <Button asChild size="lg">
+                <Link href="/projects">
+                  View projects <Sparkles />
+                </Link>
+              </Button>
             </div>
           </div>
         </Container>
       </Section>
-
-      <Section className="bg-card/35">
-        <Container>
-          <SectionHeading
-            eyebrow="Proof"
-            title="Client results will live here as the business grows."
-            body="The testimonial system is ready for quotes from local business owners, early collaborators, and demo review calls."
-          />
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {[
-              "The site finally feels like the quality of our shop.",
-              "The mobile experience made booking feel effortless.",
-              "MASNRY made the entire offer clearer in one week."
-            ].map((quote) => (
-              <Card key={quote} className="bg-background/60 p-6">
-                <Sparkles className="size-5 text-primary" />
-                <p className="mt-5 text-sm leading-6 text-muted-foreground">“{quote}”</p>
-                <p className="mt-5 text-sm font-medium">Future client</p>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <CtaBand />
     </PageTransition>
   );
 }

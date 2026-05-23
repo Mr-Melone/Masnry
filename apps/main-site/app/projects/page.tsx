@@ -9,7 +9,7 @@ import { projects } from "@/content/projects";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Explore MASNRY demo websites, prototypes, technical projects, and future client work."
+    "Browse the MASNRY archive of projects, experiments, demos, concepts, 3D printing, and digital work."
 };
 
 export default function ProjectsPage() {
@@ -18,9 +18,9 @@ export default function ProjectsPage() {
       <Section className="pb-12">
         <Container>
           <SectionHeading
-            eyebrow="Projects"
-            title="A growing library of demo sites and client-ready prototypes."
-            body="The first demo is a premium barber shop website. Future demos can be added to the same content system and deployed as separate Vercel projects."
+            eyebrow="Projects archive"
+            title="Things I have made, tested, sketched, or want to keep visible."
+            body="A visual archive for demo websites, interface experiments, systems, 3D printing notes, concepts, and future personal builds. Some are polished. Some are seeds."
           />
           <div className="mt-10">
             <ProjectFilter projects={projects} />

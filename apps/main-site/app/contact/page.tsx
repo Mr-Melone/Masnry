@@ -8,7 +8,7 @@ import { SectionHeading } from "@/components/section-heading";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Start a website, demo customization, 3D printing, or technical creative project with MASNRY."
+    "Contact MASNRY about projects, experiments, website ideas, 3D printing, or creative technical work."
 };
 
 export default function ContactPage() {
@@ -20,14 +20,14 @@ export default function ContactPage() {
             <div>
               <SectionHeading
                 eyebrow="Contact"
-                title="Tell me what you want the website to do for the business."
-                body="Use the inquiry flow for websites, demo customizations, 3D printing services, or early project ideas. The form is validation-ready and can be connected to email delivery when the business is ready."
+                title="Send a note, idea, question, or project brief."
+                body="Use the form for website ideas, demo customizations, 3D printing, experiments, collaborations, or anything that feels adjacent to MASNRY."
               />
               <div className="mt-8 grid gap-4">
                 {[
                   ["Email", "hello@masnry.com", Mail],
                   ["Booking", "Calendly placeholder", Calendar],
-                  ["Response", "Project-fit reply within 1-2 business days", MessageSquare]
+                  ["Response", "I will reply when there is a clear next step", MessageSquare]
                 ].map(([label, value, Icon]) => (
                   <Card key={label as string} className="flex items-center gap-4 bg-card/80 p-5">
                     <Icon className="size-5 text-primary" />

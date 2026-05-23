@@ -4,15 +4,15 @@ import { Button, Container } from "@masnry/ui";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-background/70">
+    <footer className="relative z-10 border-t border-white/10 bg-background/72 backdrop-blur-xl">
       <Container className="grid gap-10 py-12 md:grid-cols-[1.4fr_1fr]">
         <div>
           <Link href="/" className="font-display text-lg font-semibold">
             MASNRY
           </Link>
           <p className="mt-4 max-w-xl text-sm leading-6 text-muted-foreground">
-            Premium web design, development, demo systems, and technical creative
-            services for local businesses ready to move with more confidence.
+            A personal archive for design, code, web experiments, 3D printing,
+            digital notes, and things made for the internet.
           </p>
         </div>
         <div className="flex flex-col gap-4 md:items-end">
@@ -28,7 +28,7 @@ export function Footer() {
             </Button>
           </div>
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} MASNRY. Built for speed, trust, and conversion.
+            Copyright {new Date().getFullYear()} MASNRY. Built slowly, shipped cleanly.
           </p>
         </div>
       </Container>
