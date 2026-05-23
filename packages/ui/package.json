@@ -1,0 +1,32 @@
+{
+  "name": "@masnry/ui",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "lint": "tsc --noEmit"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./utils": "./src/utils.ts",
+    "./button": "./src/button.tsx",
+    "./badge": "./src/badge.tsx",
+    "./card": "./src/card.tsx",
+    "./container": "./src/container.tsx",
+    "./input": "./src/input.tsx",
+    "./textarea": "./src/textarea.tsx",
+    "./label": "./src/label.tsx"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.2.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "react": "^19.0.0"
+  }
+}

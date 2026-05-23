@@ -1,0 +1,20 @@
+{
+  "name": "masnry-web-presence",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @masnry/main-site",
+    "dev:main": "npm run dev --workspace @masnry/main-site",
+    "dev:barber": "npm run dev --workspace @masnry/demo-barbershop",
+    "build": "npm run build --workspaces",
+    "lint": "npm run lint --workspaces",
+    "typecheck": "npm run typecheck --workspaces"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.0"
+  }
+}
