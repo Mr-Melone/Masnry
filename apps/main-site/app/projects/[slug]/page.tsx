@@ -9,7 +9,9 @@ import { PageTransition, Reveal } from "@/components/reveal";
 import { getProjectBySlug, projects } from "@/content/projects";
 
 export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
+  return projects
+    .filter((project) => project.slug !== "barbershop")
+    .map((project) => ({ slug: project.slug }));
 }
 
 export function generateMetadata({

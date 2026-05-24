@@ -7,7 +7,7 @@ import { PageTransition, Reveal } from "@/components/reveal";
 import { projects } from "@/content/projects";
 
 const featuredProject = projects.find(
-  (project) => project.slug === "atlas-barber-studio"
+  (project) => project.slug === "barbershop"
 );
 
 const threads = [

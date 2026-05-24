@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -16,22 +15,6 @@ import {
 } from "lucide-react";
 import { Badge, Button, Card, Container, Section } from "@masnry/ui";
 import { Reveal } from "@/components/reveal";
-
-const barberTheme = {
-  "--background": "35 16% 6%",
-  "--foreground": "42 20% 94%",
-  "--card": "34 15% 10%",
-  "--card-foreground": "42 20% 94%",
-  "--primary": "38 86% 63%",
-  "--primary-foreground": "35 18% 8%",
-  "--secondary": "34 13% 15%",
-  "--secondary-foreground": "42 20% 94%",
-  "--muted": "34 13% 16%",
-  "--muted-foreground": "38 10% 70%",
-  "--border": "35 13% 20%",
-  "--input": "35 13% 24%",
-  "--ring": "38 86% 63%"
-} as CSSProperties;
 
 const shop = {
   name: "Kahil",
@@ -86,13 +69,7 @@ const reviews = [
 
 export default function BarberDemoPage() {
   return (
-    <main
-      className="isolate min-h-screen overflow-hidden bg-background text-foreground"
-      style={barberTheme}
-    >
-      <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_18%_8%,hsl(var(--primary)/0.18),transparent_32rem),radial-gradient(ellipse_at_92%_70%,hsl(22_45%_28%/0.2),transparent_34rem),linear-gradient(180deg,hsl(var(--background)),hsl(32_18%_4%))]" />
-      <div className="pointer-events-none fixed inset-0 -z-10 opacity-[0.12] [background-image:repeating-linear-gradient(0deg,hsl(0_0%_100%/0.08)_0_1px,transparent_1px_3px)]" />
-
+    <main className="isolate min-h-screen overflow-hidden bg-background text-foreground">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-background/74 backdrop-blur-xl">
         <Container className="flex h-16 items-center justify-between">
           <Link href="#top" className="font-display text-2xl font-semibold">

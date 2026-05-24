@@ -2,7 +2,7 @@ export type Project = {
   slug: string;
   title: string;
   status: "Live demo" | "Experiment" | "Concept" | "Personal build";
-  category: "Demos" | "Experiments" | "3D Printing" | "Systems";
+  category: "Websites" | "3D printing projects" | "Python and HTML";
   businessType: string;
   year: string;
   role: string;
@@ -24,7 +24,7 @@ export const projects: Project[] = [
     slug: "barbershop",
     title: "Demo Barbershop",
     status: "Live demo",
-    category: "Demos",
+    category: "Websites",
     businessType: "Barber shop demo",
     year: "2026",
     role: "Design, direction, Next.js build",
@@ -45,7 +45,7 @@ export const projects: Project[] = [
       "High-performance Next.js build"
     ],
     tags: ["Barber", "Booking", "Local business", "Demo"],
-    liveDemoUrl: "http://localhost:3001",
+    liveDemoUrl: "/projects/barbershop",
     image:
       "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1600&q=80",
     accent: "Electric blue"
@@ -54,7 +54,7 @@ export const projects: Project[] = [
     slug: "masnry-website-design",
     title: "MASNRY website design",
     status: "Personal build",
-    category: "Systems",
+    category: "Websites",
     businessType: "Brand and interface system",
     year: "2026",
     role: "Creative direction, UI system",
@@ -83,7 +83,7 @@ export const projects: Project[] = [
     slug: "3d-printing",
     title: "3D Printing Service",
     status: "Experiment",
-    category: "3D Printing",
+    category: "3D printing projects",
     businessType: "3D printing archive",
     year: "2026",
     role: "Product experiments, documentation",
@@ -112,7 +112,7 @@ export const projects: Project[] = [
     slug: "interface-sketches",
     title: "Interface Sketches",
     status: "Concept",
-    category: "Experiments",
+    category: "Python and HTML",
     businessType: "UI and motion studies",
     year: "2026",
     role: "Interaction design, frontend experiments",
@@ -141,10 +141,9 @@ export const projects: Project[] = [
 
 export const projectCategories = [
   "All",
-  "Demos",
-  "Experiments",
-  "3D Printing",
-  "Systems"
+  "Websites",
+  "3D printing projects",
+  "Python and HTML"
 ] as const;
 
 export function getProjectBySlug(slug: string) {
