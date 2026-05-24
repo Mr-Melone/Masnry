@@ -1,22 +1,8 @@
 # MASNRY Web Presence
 
-MASNRY is structured as a small production-ready monorepo for a personal brand, service business, and growing library of demo/client websites.
+MASNRY is a creative/developer portfolio and scalable demo website system. The main site is the personal archive for projects, experiments, design, code, 3D printing, and digital work. Demo apps can be duplicated and deployed independently for future clients.
 
-## Structure
-
-```txt
-apps/
-  main-site/          Primary MASNRY portfolio, landing page, lead generation site
-  demo-barbershop/    First live demo/prototype website for local business outreach
-packages/
-  ui/                 Shared shadcn-style primitives, layout helpers, and utilities
-docs/
-  client-workflow.md  Duplication, deployment, domain, and transfer workflow
-```
-
-This structure is scalable because each website can ship as its own Vercel project while sharing the same design primitives. Future demos can be added under `apps/demo-cafe`, `apps/demo-restaurant`, or promoted into client-specific apps like `apps/client-atelier-barber`.
-
-## Local Development
+## Preview Locally
 
 Install dependencies:
 
@@ -24,35 +10,128 @@ Install dependencies:
 npm install
 ```
 
-Run the main MASNRY site:
+Run the MASNRY main site:
 
 ```bash
 npm run dev:main
 ```
 
-Run the barber demo:
+Preview it at:
+
+```txt
+http://localhost:3000
+```
+
+Run the barber shop demo as its own independent app:
 
 ```bash
 npm run dev:barber
 ```
 
-## Vercel Deployment
+Preview it at:
 
-Create one Vercel project per deployable app:
+```txt
+http://localhost:3001
+```
 
-- MASNRY main site: root directory `apps/main-site`
-- Barber demo: root directory `apps/demo-barbershop`
-- Future client builds: root directory for that client's app
+## Structure
 
-Use the same GitHub repository for all projects. Vercel will detect the workspace and install from the repo root. Each project can have independent environment variables, domains, preview deployments, and production deployment settings.
+```txt
+apps/
+  main-site/          MASNRY portfolio, project archive, and identity site
+  demo-barbershop/    Independent premium barber shop demo app
+packages/
+  ui/                 Shared shadcn-style primitives and utilities
+docs/
+  client-workflow.md  Duplication, deployment, domain, and transfer workflow
+```
 
-## Client Transfer Model
+The demo app is independent so it can have its own styling, metadata, Vercel project, domain, and client handoff path. The MASNRY site can still link to it from the Projects archive.
 
-For a client who approves a demo:
+## Editing Barber Shop Content
 
-1. Duplicate the closest demo app into `apps/client-business-name`.
-2. Update brand tokens, copy, images, services, contact details, and SEO metadata.
-3. Connect the client domain in the Vercel project settings.
-4. Transfer the Vercel project or GitHub repo later if the client needs ownership.
+Most barber shop content is in:
 
-More detail lives in [docs/client-workflow.md](docs/client-workflow.md).
+```txt
+apps/demo-barbershop/app/page.tsx
+```
+
+Change the shop name, full display name, address, city, phone, hours, rating, and review count in the `shop` object near the top of the file.
+
+Update services and pricing in the `services` array:
+
+```ts
+["Signature cut", "Description", "$55", "45 min"]
+```
+
+Update barbers in the `barbers` array:
+
+```ts
+["Marcus Vale", "Founder barber", "Classic cuts, fades, beard architecture"]
+```
+
+Update gallery images in the `gallery` array. Use local images in `public/` for production client work, or remote image URLs while prototyping.
+
+Update reviews in the `reviews` array:
+
+```ts
+["Quote headline", "Longer review body", "Customer name"]
+```
+
+Update the embedded map by changing the Google Maps query in the iframe `src`.
+
+## Changing Demo Colors
+
+The independent barber app theme lives in:
+
+```txt
+apps/demo-barbershop/app/globals.css
+```
+
+Change the HSL CSS variables in `:root` to create a different client palette. Keep the same token names so shared UI components continue to work:
+
+```css
+--background
+--foreground
+--card
+--primary
+--secondary
+--muted
+--border
+```
+
+For the MASNRY-hosted route preview, the same barber palette is also scoped in:
+
+```txt
+apps/main-site/app/projects/barbershop/page.tsx
+```
+
+## Duplicating A Demo For A Client
+
+Copy the demo app into a new app folder:
+
+```txt
+apps/demo-barbershop -> apps/client-business-name
+```
+
+Then update:
+
+- `package.json` name
+- `app/layout.tsx` metadata
+- `app/page.tsx` content arrays and shop details
+- `app/globals.css` color theme
+- images, gallery, services, team, reviews, social links, map, and booking URL
+
+Keep the copied app independent. Do not place client apps inside `apps/main-site/app`.
+
+## Deploying With GitHub And Vercel
+
+Push changes to GitHub first. In Vercel, create one project per app:
+
+- MASNRY main site root directory: `apps/main-site`
+- Barber demo root directory: `apps/demo-barbershop`
+- Future client site root directory: `apps/client-business-name`
+
+Each Vercel project can have its own domain, environment variables, preview deployments, production deployment, and ownership transfer path.
+
+For client handoff, either keep the site managed under MASNRY or extract the client app into its own repository after payment and transfer the Vercel project.
