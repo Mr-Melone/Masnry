@@ -59,7 +59,7 @@ export function ProjectCard({
   }
 
   return (
-    <Link href={`/projects/${project.barbershop}`} className={cn("group block", className)}>
+    <Link href={`/projects/${project.slug}`} className={cn("group block", className)}>
       <Card className="cinematic-panel h-full overflow-hidden bg-transparent transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10">
         <div className="relative aspect-[4/3] overflow-hidden">
           <Image
