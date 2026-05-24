@@ -21,8 +21,8 @@ export type Project = {
 // be added here first, then migrated to MDX or a headless CMS once the portfolio grows.
 export const projects: Project[] = [
   {
-    slug: "atlas-barber-studio",
-    title: "Atlas Barber Studio",
+    slug: "barbershop",
+    title: "Demo Barbershop",
     status: "Live demo",
     category: "Demos",
     businessType: "Barber shop demo",
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     summary:
       "A cinematic barber shop concept with booking, services, gallery, and a mobile-first flow.",
     description:
-      "Atlas Barber Studio is the first MASNRY demo: a polished one-page barber shop site built as a real prototype, not a throwaway mockup. It explores how atmosphere, strong imagery, and simple booking paths can make a local business feel sharper online.",
+      "Barbershop is the first MASNRY demo: a polished one-page barber shop site built as a real prototype, not a throwaway mockup. It explores how atmosphere, strong imagery, and simple booking paths can make a local business feel sharper online.",
     problem:
       "A lot of local businesses have presence, but not atmosphere. This concept looks at how a small service business can feel memorable before someone walks through the door.",
     solution:
@@ -51,8 +51,8 @@ export const projects: Project[] = [
     accent: "Electric blue"
   },
   {
-    slug: "masnry-identity-system",
-    title: "MASNRY Identity System",
+    slug: "masnry-website-design",
+    title: "MASNRY website design",
     status: "Personal build",
     category: "Systems",
     businessType: "Brand and interface system",
@@ -80,8 +80,8 @@ export const projects: Project[] = [
     accent: "Blue glass"
   },
   {
-    slug: "print-lab-notes",
-    title: "Print Lab Notes",
+    slug: "3d-printing",
+    title: "3D Printing Service",
     status: "Experiment",
     category: "3D Printing",
     businessType: "3D printing archive",
