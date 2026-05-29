@@ -57,3 +57,13 @@ The monorepo works well while MASNRY manages multiple demos. If a client needs o
 ## Content Strategy
 
 The main site keeps project data in TypeScript content modules so new demos can be added without changing page layouts. If content grows, the same shape can be migrated to MDX, Sanity, Contentful, or another headless CMS.
+
+Current archive categories are intentionally limited to:
+
+```txt
+Website Design
+3D Printing
+Python & HTML
+```
+
+Add future cards in `apps/main-site/content/projects.ts`, then route polished demos under the matching category page. If a category has no public projects yet, keep a designed Coming Soon page live instead of letting the route 404.

@@ -15,8 +15,8 @@ export function ProjectCard({
 }) {
   if (variant === "feature") {
     return (
-      <Link href={`/projects/${project.slug}`} className={cn("group block", className)}>
-        <article className="cinematic-panel grid overflow-hidden rounded-lg lg:grid-cols-[1.1fr_0.9fr]">
+      <Link href={project.href} className={cn("group block", className)}>
+        <article className="cinematic-panel grid overflow-hidden rounded-lg transition duration-500 group-hover:-translate-y-1 group-hover:shadow-primary/20 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="relative min-h-80 overflow-hidden lg:min-h-[34rem]">
             <Image
               src={project.image}
@@ -59,8 +59,8 @@ export function ProjectCard({
   }
 
   return (
-    <Link href={`/projects/${project.slug}`} className={cn("group block", className)}>
-      <Card className="cinematic-panel h-full overflow-hidden bg-transparent transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10">
+    <Link href={project.href} className={cn("group block", className)}>
+      <Card className="cinematic-panel h-full overflow-hidden bg-transparent transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10">
         <div className="relative aspect-[4/3] overflow-hidden">
           <Image
             src={project.image}

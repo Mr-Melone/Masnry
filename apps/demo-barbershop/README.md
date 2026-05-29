@@ -67,6 +67,18 @@ https://www.google.com/maps?q=YOUR%20ADDRESS&output=embed
 
 The social icons live in the Location section. Replace `href="#"` with the real Instagram, Facebook, and YouTube links.
 
+## MASNRY Preview Back Button
+
+The header includes a small `MASNRY` button so someone previewing the demo can return to the main portfolio site.
+
+For MASNRY-owned previews, set this environment variable in Vercel:
+
+```txt
+NEXT_PUBLIC_MASNRY_HOME_URL=https://your-masnry-domain.com
+```
+
+For a real client export, remove that button from `apps/demo-barbershop/app/page.tsx` before launch so the site feels fully client-owned.
+
 ## Change Color Theme
 
 Edit `apps/demo-barbershop/app/globals.css`.

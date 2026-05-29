@@ -3,11 +3,11 @@ import Link from "next/link";
 import { ArrowRight, Box, Code2, Monitor, Sparkles } from "lucide-react";
 import { Badge, Button, Card, Container, Section } from "@masnry/ui";
 import { ProjectCard } from "@/components/project-card";
-import { PageTransition, Reveal } from "@/components/reveal";
+import { PageTransition, ParallaxLayer, Reveal } from "@/components/reveal";
 import { projects } from "@/content/projects";
 
 const featuredProject = projects.find(
-  (project) => project.slug === "barbershop"
+  (project) => project.slug === "barber-shop-demo"
 );
 
 const threads = [
@@ -33,7 +33,7 @@ export default function HomePage() {
     <PageTransition>
       <Section className="relative min-h-[calc(100vh-4rem)] overflow-hidden py-14 sm:py-20 lg:py-24">
         <Container className="relative grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <Reveal>
+          <Reveal variant="mask">
             <Badge className="border-primary/25 bg-primary/10 text-primary">
               MASNRY / personal studio
             </Badge>
@@ -63,8 +63,8 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.12}>
-            <div className="cinematic-panel noise-panel relative overflow-hidden rounded-lg p-3">
+          <ParallaxLayer distance={34}>
+            <div className="cinematic-panel noise-panel relative overflow-hidden rounded-lg p-3 transition duration-700 hover:-translate-y-1 hover:border-primary/40">
               <div className="relative aspect-[4/3] overflow-hidden rounded-md">
                 <Image
                   src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1500&q=80"
@@ -85,7 +85,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </Reveal>
+          </ParallaxLayer>
         </Container>
       </Section>
 
@@ -120,7 +120,9 @@ export default function HomePage() {
               </Button>
             </div>
             <Reveal>
-              <ProjectCard project={featuredProject} variant="feature" />
+              <ParallaxLayer distance={24}>
+                <ProjectCard project={featuredProject} variant="feature" />
+              </ParallaxLayer>
             </Reveal>
           </Container>
         </Section>

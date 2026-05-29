@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
+  ArrowLeft,
   ArrowRight,
   CalendarCheck,
   Clock,
@@ -68,13 +69,22 @@ const reviews = [
 ];
 
 export default function BarberDemoPage() {
+  const masnryHomeUrl = process.env.NEXT_PUBLIC_MASNRY_HOME_URL ?? "http://localhost:3000";
+
   return (
     <main className="isolate min-h-screen overflow-hidden bg-background text-foreground">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-background/74 backdrop-blur-xl">
         <Container className="flex h-16 items-center justify-between">
-          <Link href="#top" className="font-display text-2xl font-semibold">
-            {shop.name}
-          </Link>
+          <div className="flex items-center gap-3">
+            <Button asChild size="sm" variant="outline">
+              <Link href={masnryHomeUrl}>
+                <ArrowLeft /> MASNRY
+              </Link>
+            </Button>
+            <Link href="#top" className="font-display text-2xl font-semibold">
+              {shop.name}
+            </Link>
+          </div>
           <nav className="hidden items-center gap-7 text-sm text-muted-foreground md:flex">
             <Link href="#services" className="hover:text-foreground">
               Services
@@ -132,7 +142,7 @@ export default function BarberDemoPage() {
         </Container>
       </section>
 
-      <Section className="border-y border-border bg-card/60 py-8">
+      <Section className="relative z-10 -mt-10 bg-gradient-to-b from-transparent via-card/54 to-card/38 py-8">
         <Container className="grid gap-4 sm:grid-cols-3">
           {[
             [Clock, "Open late", shop.hours],

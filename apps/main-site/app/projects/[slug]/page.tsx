@@ -10,7 +10,10 @@ import { getProjectBySlug, projects } from "@/content/projects";
 
 export function generateStaticParams() {
   return projects
-    .filter((project) => project.slug !== "barbershop")
+    .filter(
+      (project) =>
+        project.slug !== "barber-shop-demo" && project.slug !== "nxt-demo"
+    )
     .map((project) => ({ slug: project.slug }));
 }
 
