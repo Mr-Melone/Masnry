@@ -20,10 +20,10 @@ export function Reveal({
   const ref = useRef<HTMLDivElement>(null);
   const [visibleState, setVisibleState] = useState(false);
   const variants = {
-    lift: { opacity: 0, y: 22, filter: "blur(10px)" },
-    soft: { opacity: 0, y: 0, filter: "blur(14px)" },
-    mask: { opacity: 0, y: 28, clipPath: "inset(0 0 100% 0)" },
-    scale: { opacity: 0, y: 18, scale: 0.97, filter: "blur(10px)" }
+    lift: { opacity: 0, y: 58, filter: "blur(18px)" },
+    soft: { opacity: 0, y: 18, filter: "blur(20px)" },
+    mask: { opacity: 0, y: 62, clipPath: "inset(0 0 100% 0)" },
+    scale: { opacity: 0, y: 42, scale: 0.94, filter: "blur(18px)" }
   };
   const visible = {
     opacity: 1,
@@ -37,15 +37,12 @@ export function Reveal({
     const node = ref.current;
     if (!node) return;
 
-    const fallback = window.setTimeout(() => setVisibleState(true), 700);
+    const fallback = window.setTimeout(() => setVisibleState(true), 900);
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry?.isIntersecting) {
-          setVisibleState(true);
-          observer.disconnect();
-        }
+        setVisibleState(Boolean(entry?.isIntersecting));
       },
-      { rootMargin: "0px 0px -80px 0px", threshold: 0.1 }
+      { rootMargin: "0px 0px -5% 0px", threshold: 0.08 }
     );
 
     observer.observe(node);
@@ -60,7 +57,7 @@ export function Reveal({
       ref={ref}
       initial={variants[variant]}
       animate={visibleState ? visible : variants[variant]}
-      transition={{ duration: 0.72, ease: [0.16, 1, 0.3, 1], delay }}
+      transition={{ duration: 0.95, ease: [0.16, 1, 0.22, 1], delay }}
       {...props}
     >
       {children}

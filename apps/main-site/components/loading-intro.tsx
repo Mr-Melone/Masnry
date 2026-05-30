@@ -4,19 +4,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export function LoadingIntro() {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const hasSeenIntro = sessionStorage.getItem("masnry-intro-seen") === "true";
-    if (hasSeenIntro) return;
-
-    sessionStorage.setItem("masnry-intro-seen", "true");
-    const startTimer = window.setTimeout(() => setVisible(true), 0);
     const endTimer = window.setTimeout(() => setVisible(false), 1150);
-    return () => {
-      window.clearTimeout(startTimer);
-      window.clearTimeout(endTimer);
-    };
+    return () => window.clearTimeout(endTimer);
   }, []);
 
   return (

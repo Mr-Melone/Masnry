@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { Button } from "@masnry/ui";
 import { ProjectCard } from "./project-card";
+import { Reveal } from "./reveal";
 import { projectCategories, type Project } from "@/content/projects";
 
 export function ProjectFilter({ projects }: { projects: Project[] }) {
@@ -34,12 +35,17 @@ export function ProjectFilter({ projects }: { projects: Project[] }) {
       </div>
       <div className="mt-8 grid auto-rows-fr gap-6 md:grid-cols-2 xl:grid-cols-6">
         {filtered.map((project, index) => (
-          <ProjectCard
+          <Reveal
             key={project.slug}
-            project={project}
             className={index === 0 ? "md:col-span-2 xl:col-span-4" : "xl:col-span-2"}
-            variant={index === 0 ? "feature" : "default"}
-          />
+            delay={index * 0.08}
+            variant={index === 0 ? "scale" : "lift"}
+          >
+            <ProjectCard
+              project={project}
+              variant={index === 0 ? "feature" : "default"}
+            />
+          </Reveal>
         ))}
       </div>
     </div>

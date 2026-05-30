@@ -151,6 +151,99 @@ html:not(.dark) body::before {
   backdrop-filter: blur(18px);
 }
 
+.galaxy-band {
+  animation: galaxy-drift 46s ease-in-out infinite alternate;
+  background:
+    radial-gradient(ellipse at 20% 50%, hsl(var(--primary) / 0.18), transparent 18%),
+    radial-gradient(ellipse at 50% 45%, hsl(258 88% 70% / 0.12), transparent 24%),
+    radial-gradient(ellipse at 74% 56%, hsl(195 96% 70% / 0.1), transparent 20%),
+    linear-gradient(90deg, transparent, hsl(var(--foreground) / 0.06), transparent);
+  filter: blur(28px);
+}
+
+html:not(.dark) .galaxy-band {
+  background:
+    radial-gradient(ellipse at 20% 50%, hsl(var(--primary) / 0.1), transparent 18%),
+    radial-gradient(ellipse at 50% 45%, hsl(258 88% 70% / 0.08), transparent 24%),
+    radial-gradient(ellipse at 74% 56%, hsl(195 96% 70% / 0.07), transparent 20%),
+    linear-gradient(90deg, transparent, hsl(var(--foreground) / 0.045), transparent);
+}
+
+.star-speck {
+  animation: star-drift 18s ease-in-out infinite alternate;
+}
+
+.section-veil {
+  position: relative;
+}
+
+.section-veil::before {
+  pointer-events: none;
+  position: absolute;
+  inset: -5rem 0 auto;
+  height: 12rem;
+  content: "";
+  background: linear-gradient(
+    180deg,
+    transparent,
+    hsl(var(--background) / 0.48) 42%,
+    transparent
+  );
+  opacity: 0.75;
+}
+
+.nxt-energy-cloud {
+  animation: nxt-cloud-drift 34s ease-in-out infinite alternate;
+}
+
+.nxt-product-float {
+  animation: nxt-product-float 9s ease-in-out infinite alternate;
+}
+
+.nxt-logo-stack {
+  line-height: 0.78;
+  writing-mode: horizontal-tb;
+}
+
+@keyframes galaxy-drift {
+  0% {
+    transform: translate3d(-6%, 6%, 0) rotate(-22deg) scale(1);
+  }
+  50% {
+    transform: translate3d(2%, -3%, 0) rotate(-16deg) scale(1.08);
+  }
+  100% {
+    transform: translate3d(7%, 4%, 0) rotate(-11deg) scale(1.04);
+  }
+}
+
+@keyframes star-drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0.7rem, -1.1rem, 0);
+  }
+}
+
+@keyframes nxt-cloud-drift {
+  0% {
+    transform: translate3d(-3%, 2%, 0) rotate(-8deg) scale(1);
+  }
+  100% {
+    transform: translate3d(4%, -2%, 0) rotate(6deg) scale(1.08);
+  }
+}
+
+@keyframes nxt-product-float {
+  0% {
+    transform: translate3d(0, 0.45rem, 0) rotate(-1deg);
+  }
+  100% {
+    transform: translate3d(0, -0.35rem, 0) rotate(1deg);
+  }
+}
+
 .text-balance {
   text-wrap: balance;
 }

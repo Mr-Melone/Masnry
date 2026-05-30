@@ -31,9 +31,9 @@ const nxtTheme = {
 } as CSSProperties;
 
 const products = [
-  ["NXT Core", "Low-profile daily match pad", "$39", "82g pair"],
-  ["NXT Aero", "Vent-cut shell for fast play", "$49", "74g pair"],
-  ["NXT Blackout", "Matte black limited fit", "$59", "80g pair"]
+  ["Core", "Low-profile daily match pad", "$39", "82g pair"],
+  ["Aero", "Vent-cut shell for fast play", "$49", "74g pair"],
+  ["Blackout", "Matte black limited fit", "$59", "80g pair"]
 ];
 
 const features = [
@@ -48,6 +48,19 @@ export const metadata: Metadata = {
     "A premium sports-tech demo website for modern football mini shinpads."
 };
 
+function NxtLogo({ className = "" }: { className?: string }) {
+  return (
+    <span
+      aria-label="NXT"
+      className={`nxt-logo-stack inline-grid place-items-center font-display text-xl font-semibold tracking-normal ${className}`}
+    >
+      <span>N</span>
+      <span>X</span>
+      <span>T</span>
+    </span>
+  );
+}
+
 export default function NxtDemoPage() {
   return (
     <main
@@ -55,12 +68,17 @@ export default function NxtDemoPage() {
       style={nxtTheme}
     >
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_22%_0%,hsl(231_90%_70%/0.18),transparent_30rem),radial-gradient(ellipse_at_90%_18%,hsl(260_90%_70%/0.13),transparent_26rem),linear-gradient(180deg,hsl(var(--background)),hsl(220_26%_94%))]" />
-      <div className="pointer-events-none fixed inset-0 -z-10 opacity-[0.22] [background-image:radial-gradient(circle_at_center,hsl(222_24%_5%/0.16)_0_1px,transparent_1px)] [background-size:34px_34px]" />
+      <div className="nxt-energy-cloud pointer-events-none fixed -left-48 top-10 -z-10 h-[34rem] w-[58rem] rounded-[999px] bg-[radial-gradient(ellipse_at_25%_45%,hsl(220_100%_70%/0.2),transparent_34%),radial-gradient(ellipse_at_58%_38%,hsl(270_92%_76%/0.16),transparent_30%),radial-gradient(ellipse_at_80%_58%,hsl(190_92%_70%/0.12),transparent_28%)] blur-3xl" />
+      <div className="nxt-energy-cloud pointer-events-none fixed -right-56 bottom-0 -z-10 h-[30rem] w-[52rem] rounded-[999px] bg-[radial-gradient(ellipse_at_32%_48%,hsl(222_24%_5%/0.12),transparent_34%),radial-gradient(ellipse_at_64%_44%,hsl(236_100%_72%/0.18),transparent_28%)] blur-3xl [animation-delay:-12s]" />
+      <div className="pointer-events-none fixed inset-0 -z-10 opacity-[0.18] [background-image:radial-gradient(circle_at_center,hsl(222_24%_5%/0.18)_0_1px,transparent_1px)] [background-size:41px_37px]" />
 
       <header className="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-white/74 backdrop-blur-xl">
         <Container className="flex h-16 items-center justify-between">
-          <Link href="#top" className="font-display text-2xl font-semibold">
-            NXT
+          <Link
+            href="#top"
+            className="transition duration-500 hover:-translate-y-0.5 hover:text-muted-foreground"
+          >
+            <NxtLogo />
           </Link>
           <nav className="hidden items-center gap-7 text-sm text-muted-foreground md:flex">
             <Link href="#product" className="hover:text-foreground">
@@ -92,6 +110,10 @@ export default function NxtDemoPage() {
             <Badge className="border-black/10 bg-black text-white">
               Football mini shinpads
             </Badge>
+            <div className="mt-8 flex items-end gap-5">
+              <NxtLogo className="text-5xl sm:text-6xl" />
+              <div className="h-px flex-1 bg-gradient-to-r from-black/24 to-transparent" />
+            </div>
             <h1 className="mt-6 max-w-4xl font-display text-6xl font-semibold leading-[0.95] tracking-normal sm:text-7xl lg:text-8xl">
               Protection trimmed to the essentials.
             </h1>
@@ -112,7 +134,7 @@ export default function NxtDemoPage() {
           </Reveal>
 
           <ParallaxLayer distance={38}>
-            <div className="relative min-h-[32rem] overflow-hidden rounded-lg border border-black/10 bg-white shadow-2xl shadow-black/12">
+            <div className="relative min-h-[32rem] overflow-hidden rounded-lg border border-black/10 bg-white shadow-2xl shadow-black/12 transition duration-700 hover:-translate-y-1">
               <Image
                 src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1400&q=80"
                 alt="Football player wearing white kit"
@@ -122,13 +144,14 @@ export default function NxtDemoPage() {
                 sizes="(min-width: 1024px) 56vw, 100vw"
               />
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_58%_45%,transparent_0_18rem,white_72%),linear-gradient(135deg,white_0%,transparent_42%,white_100%)]" />
+              <div className="nxt-energy-cloud absolute -right-20 top-10 h-56 w-80 rounded-full bg-[radial-gradient(ellipse_at_center,hsl(230_100%_72%/0.18),transparent_62%)] blur-2xl" />
               <div className="absolute inset-x-8 bottom-8 rounded-lg border border-black/10 bg-white/72 p-4 shadow-2xl shadow-black/10 backdrop-blur-xl sm:p-6">
                 <p className="text-xs uppercase tracking-[0.22em] text-muted-foreground">
                   Product form
                 </p>
                 <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                  <div className="aspect-[3/4] rounded-[2rem] border border-black/10 bg-[radial-gradient(ellipse_at_50%_20%,hsl(235_100%_74%/0.18),transparent_50%),linear-gradient(160deg,#ffffff,#dfe4ee)] shadow-inner" />
-                  <div className="aspect-[3/4] rounded-[2rem] border border-black/10 bg-[radial-gradient(ellipse_at_40%_18%,hsl(260_90%_74%/0.22),transparent_48%),linear-gradient(160deg,#0b0d13,#1f2431)] shadow-inner" />
+                  <div className="nxt-product-float aspect-[3/4] rounded-[2rem] border border-black/10 bg-[radial-gradient(ellipse_at_50%_20%,hsl(235_100%_74%/0.18),transparent_50%),linear-gradient(160deg,#ffffff,#dfe4ee)] shadow-inner" />
+                  <div className="nxt-product-float aspect-[3/4] rounded-[2rem] border border-black/10 bg-[radial-gradient(ellipse_at_40%_18%,hsl(260_90%_74%/0.22),transparent_48%),linear-gradient(160deg,#0b0d13,#1f2431)] shadow-inner [animation-delay:-4s]" />
                 </div>
               </div>
             </div>
@@ -136,7 +159,8 @@ export default function NxtDemoPage() {
         </Container>
       </section>
 
-      <Section id="product" className="py-16">
+      <Section id="product" className="relative py-16">
+        <div className="pointer-events-none absolute inset-x-0 -top-24 h-48 bg-gradient-to-b from-transparent via-white/58 to-transparent" />
         <Container>
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
@@ -153,8 +177,8 @@ export default function NxtDemoPage() {
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {products.map(([name, body, price, weight], index) => (
               <Reveal key={name} delay={index * 0.06} variant="scale">
-                <Card className="h-full bg-white/80 p-5 shadow-2xl shadow-black/10 transition duration-500 hover:-translate-y-1">
-                  <div className="aspect-[4/5] rounded-lg border border-black/10 bg-[radial-gradient(ellipse_at_50%_20%,hsl(230_100%_74%/0.18),transparent_42%),linear-gradient(160deg,#ffffff,#e8ebf2)]" />
+                <Card className="h-full bg-white/80 p-5 shadow-2xl shadow-black/10 transition duration-700 hover:-translate-y-2 hover:shadow-black/16">
+                  <div className="nxt-product-float aspect-[4/5] rounded-lg border border-black/10 bg-[radial-gradient(ellipse_at_50%_20%,hsl(230_100%_74%/0.18),transparent_42%),linear-gradient(160deg,#ffffff,#e8ebf2)]" />
                   <div className="mt-5 flex items-start justify-between gap-4">
                     <div>
                       <h3 className="font-display text-2xl font-semibold">{name}</h3>
@@ -177,7 +201,8 @@ export default function NxtDemoPage() {
         </Container>
       </Section>
 
-      <Section id="fit" className="bg-black py-20 text-white">
+      <Section id="fit" className="relative overflow-hidden bg-black py-20 text-white">
+        <div className="nxt-energy-cloud pointer-events-none absolute -left-40 top-10 h-80 w-[44rem] rounded-full bg-[radial-gradient(ellipse_at_center,hsl(220_100%_72%/0.18),transparent_62%)] blur-3xl" />
         <Container>
           <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
             <Reveal>
@@ -191,7 +216,7 @@ export default function NxtDemoPage() {
             <div className="grid gap-4">
               {features.map(([title, body], index) => (
                 <Reveal key={title} delay={index * 0.06}>
-                  <div className="grid gap-4 rounded-lg border border-white/12 bg-white/[0.06] p-5 backdrop-blur-xl sm:grid-cols-[auto_1fr_auto] sm:items-center">
+                  <div className="grid gap-4 rounded-lg border border-white/12 bg-white/[0.06] p-5 backdrop-blur-xl transition duration-700 hover:-translate-y-1 hover:bg-white/[0.09] sm:grid-cols-[auto_1fr_auto] sm:items-center">
                     {index === 0 ? (
                       <Zap className="size-6 text-white" />
                     ) : index === 1 ? (
@@ -212,7 +237,8 @@ export default function NxtDemoPage() {
         </Container>
       </Section>
 
-      <Section id="drop">
+      <Section id="drop" className="relative">
+        <div className="pointer-events-none absolute inset-x-0 -top-24 h-48 bg-gradient-to-b from-black/10 via-transparent to-transparent" />
         <Container>
           <div className="overflow-hidden rounded-lg border border-black/10 bg-white shadow-2xl shadow-black/10">
             <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[1fr_0.72fr] lg:p-10">
@@ -247,7 +273,7 @@ export default function NxtDemoPage() {
 
       <footer className="border-t border-black/10">
         <Container className="flex flex-col gap-4 py-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-display text-2xl font-semibold">NXT</p>
+          <NxtLogo className="text-2xl" />
           <Link
             href="/projects/website-design"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"

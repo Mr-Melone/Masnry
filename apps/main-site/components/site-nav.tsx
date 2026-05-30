@@ -39,12 +39,9 @@ export function SiteNav() {
       <Container className="flex h-16 items-center justify-between">
         <Link
           href="/"
-          className="group relative rounded-full px-1 py-2 font-display text-lg font-semibold tracking-normal"
+          className="group relative rounded-full border border-transparent px-3 py-2 font-display text-lg font-semibold tracking-normal transition duration-500 hover:-translate-y-0.5 hover:rotate-[0.6deg] hover:border-primary/20 hover:text-primary hover:shadow-[0_0_28px_hsl(var(--primary)/0.16)]"
         >
-          <span className="pointer-events-none absolute inset-[-0.45rem] rounded-full border border-primary/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            <span className="absolute inset-0 animate-[spin_2.8s_linear_infinite] rounded-full bg-[conic-gradient(from_0deg,transparent_0_64%,hsl(var(--primary)/0.9),transparent_82%)] p-px blur-[0.5px] [mask:linear-gradient(#000_0_0)_content-box,linear-gradient(#000_0_0)] [mask-composite:exclude]" />
-            <span className="absolute inset-1 rounded-full shadow-[0_0_28px_hsl(var(--primary)/0.45)]" />
-          </span>
+          <span className="pointer-events-none absolute inset-0 rounded-full bg-primary/0 transition duration-500 group-hover:bg-primary/8" />
           <span className="relative">MASNRY</span>
         </Link>
         <nav className="hidden items-center gap-1 md:flex">

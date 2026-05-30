@@ -31,15 +31,31 @@ const threads = [
 export default function HomePage() {
   return (
     <PageTransition>
-      <Section className="relative min-h-[calc(100vh-4rem)] overflow-hidden py-14 sm:py-20 lg:py-24">
+      <section className="relative grid min-h-[calc(100vh-4rem)] place-items-center overflow-hidden px-4 py-16">
+        <div className="galaxy-band absolute left-[-34%] top-[18%] h-[30rem] w-[168%] opacity-70" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_42%,hsl(var(--primary)/0.18),transparent_28rem)]" />
+        <Reveal variant="mask">
+          <div className="relative inline-block">
+            <p className="absolute left-1 top-1 font-mono text-xs uppercase tracking-[0.34em] text-primary sm:left-3 sm:top-2 sm:text-sm">
+              welcome to
+            </p>
+            <h1 className="pt-8 font-display text-7xl font-semibold leading-none tracking-normal text-foreground sm:text-9xl lg:text-[12rem] xl:text-[15rem]">
+              MASNRY
+            </h1>
+          </div>
+        </Reveal>
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background" />
+      </section>
+
+      <Section className="section-veil relative min-h-[calc(100vh-4rem)] overflow-hidden py-14 sm:py-20 lg:py-24">
         <Container className="relative grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <Reveal variant="mask">
             <Badge className="border-primary/25 bg-primary/10 text-primary">
               MASNRY / personal studio
             </Badge>
-            <h1 className="text-balance mt-6 max-w-4xl font-display text-5xl font-semibold leading-[1.02] tracking-normal sm:text-6xl lg:text-7xl">
+            <h2 className="text-balance mt-6 max-w-4xl font-display text-5xl font-semibold leading-[1.02] tracking-normal sm:text-6xl lg:text-7xl">
               Building things for the internet.
-            </h1>
+            </h2>
             <p className="mt-6 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
               Projects, experiments, design, code, 3D printing, and digital work.
               A place for what I make, what I am learning, and what is next.
@@ -89,7 +105,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section className="py-12">
+      <Section className="section-veil py-12">
         <Container>
           <Reveal>
             <div className="cinematic-panel rounded-lg p-6 sm:p-8 lg:p-10">
@@ -104,7 +120,7 @@ export default function HomePage() {
       </Section>
 
       {featuredProject ? (
-        <Section>
+        <Section className="section-veil">
           <Container>
             <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
               <div>
@@ -128,7 +144,7 @@ export default function HomePage() {
         </Section>
       ) : null}
 
-      <Section className="py-16">
+      <Section className="section-veil py-16">
         <Container>
           <div className="grid gap-6 md:grid-cols-3">
             {threads.map((thread, index) => (
@@ -148,7 +164,7 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section className="pb-20 pt-8">
+      <Section className="section-veil pb-20 pt-8">
         <Container>
           <div className="grid gap-8 lg:grid-cols-[1fr_0.75fr] lg:items-center">
             <div>
