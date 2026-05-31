@@ -19,6 +19,7 @@ export function Reveal({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visibleState, setVisibleState] = useState(false);
+  const [hasEntered, setHasEntered] = useState(false);
   const variants = {
     lift: { opacity: 0, y: 58, filter: "blur(18px)" },
     soft: { opacity: 0, y: 18, filter: "blur(20px)" },
@@ -32,15 +33,30 @@ export function Reveal({
     filter: "blur(0px)",
     clipPath: "inset(0 0 0% 0)"
   };
+  const replayBase = {
+    opacity: 0.62,
+    y: variant === "soft" ? 10 : 32,
+    scale: variant === "scale" ? 0.98 : 1,
+    filter: "blur(8px)",
+    clipPath: variant === "mask" ? "inset(0 0 18% 0)" : "inset(0 0 0% 0)"
+  };
 
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
 
-    const fallback = window.setTimeout(() => setVisibleState(true), 900);
+    const show = () => {
+      setVisibleState(true);
+      setHasEntered(true);
+    };
+    const fallback = window.setTimeout(show, 900);
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setVisibleState(Boolean(entry?.isIntersecting));
+        if (entry?.isIntersecting) {
+          show();
+        } else {
+          setVisibleState(false);
+        }
       },
       { rootMargin: "0px 0px -5% 0px", threshold: 0.08 }
     );
@@ -56,7 +72,7 @@ export function Reveal({
     <motion.div
       ref={ref}
       initial={variants[variant]}
-      animate={visibleState ? visible : variants[variant]}
+      animate={visibleState ? visible : hasEntered ? replayBase : variants[variant]}
       transition={{ duration: 0.95, ease: [0.16, 1, 0.22, 1], delay }}
       {...props}
     >

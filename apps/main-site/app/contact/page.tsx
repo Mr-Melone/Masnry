@@ -6,9 +6,9 @@ import { PageTransition } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact MASNRY",
   description:
-    "Contact MASNRY about projects, experiments, website ideas, 3D printing, or creative technical work."
+    "Contact MASNRY about custom websites, website redesigns, digital products, 3D printing, or creative technical projects in Brisbane."
 };
 
 export default function ContactPage() {

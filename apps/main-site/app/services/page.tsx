@@ -7,9 +7,9 @@ import { PageTransition, Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Services | Website Design And Creative Development",
   description:
-    "Ways MASNRY can help with websites, prototypes, 3D printing, and technical creative work."
+    "Website design, website redesign, creative development, prototypes, and 3D printing services from MASNRY in Brisbane."
 };
 
 const services = [

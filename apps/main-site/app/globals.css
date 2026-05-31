@@ -161,12 +161,55 @@ html:not(.dark) body::before {
   filter: blur(28px);
 }
 
+.milky-way {
+  animation: milky-way-swirl 72s linear infinite;
+  background:
+    radial-gradient(ellipse at 16% 50%, hsl(var(--primary) / 0.28), transparent 18%),
+    radial-gradient(ellipse at 34% 42%, hsl(220 100% 74% / 0.18), transparent 15%),
+    radial-gradient(ellipse at 54% 55%, hsl(260 90% 72% / 0.2), transparent 20%),
+    radial-gradient(ellipse at 76% 48%, hsl(190 95% 70% / 0.14), transparent 18%),
+    linear-gradient(90deg, transparent 4%, hsl(var(--foreground) / 0.1), transparent 92%);
+  filter: blur(20px);
+  mask-image: linear-gradient(90deg, transparent, black 14%, black 86%, transparent);
+}
+
+.milky-way::before,
+.milky-way::after {
+  position: absolute;
+  inset: 14% 4%;
+  content: "";
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 18% 48%, hsl(var(--foreground) / 0.22) 0 1px, transparent 2px),
+    radial-gradient(circle at 31% 54%, hsl(var(--foreground) / 0.18) 0 1px, transparent 2px),
+    radial-gradient(circle at 43% 41%, hsl(var(--foreground) / 0.2) 0 1px, transparent 2px),
+    radial-gradient(circle at 59% 51%, hsl(var(--foreground) / 0.16) 0 1px, transparent 2px),
+    radial-gradient(circle at 72% 46%, hsl(var(--foreground) / 0.18) 0 1px, transparent 2px),
+    radial-gradient(circle at 84% 57%, hsl(var(--foreground) / 0.2) 0 1px, transparent 2px);
+  opacity: 0.62;
+}
+
+.milky-way::after {
+  inset: 23% 10%;
+  opacity: 0.36;
+  transform: rotate(3deg) scaleX(0.96);
+}
+
 html:not(.dark) .galaxy-band {
   background:
     radial-gradient(ellipse at 20% 50%, hsl(var(--primary) / 0.1), transparent 18%),
     radial-gradient(ellipse at 50% 45%, hsl(258 88% 70% / 0.08), transparent 24%),
     radial-gradient(ellipse at 74% 56%, hsl(195 96% 70% / 0.07), transparent 20%),
     linear-gradient(90deg, transparent, hsl(var(--foreground) / 0.045), transparent);
+}
+
+html:not(.dark) .milky-way {
+  background:
+    radial-gradient(ellipse at 16% 50%, hsl(var(--primary) / 0.16), transparent 18%),
+    radial-gradient(ellipse at 34% 42%, hsl(220 100% 74% / 0.1), transparent 15%),
+    radial-gradient(ellipse at 54% 55%, hsl(260 90% 72% / 0.1), transparent 20%),
+    radial-gradient(ellipse at 76% 48%, hsl(190 95% 70% / 0.08), transparent 18%),
+    linear-gradient(90deg, transparent 4%, hsl(var(--foreground) / 0.06), transparent 92%);
 }
 
 .star-speck {
@@ -214,6 +257,18 @@ html:not(.dark) .galaxy-band {
   }
   100% {
     transform: translate3d(7%, 4%, 0) rotate(-11deg) scale(1.04);
+  }
+}
+
+@keyframes milky-way-swirl {
+  0% {
+    transform: translate3d(-7%, 6%, 0) rotate(-28deg) scale(1.04);
+  }
+  50% {
+    transform: translate3d(1%, -2%, 0) rotate(-18deg) scale(1.13);
+  }
+  100% {
+    transform: translate3d(7%, 5%, 0) rotate(-8deg) scale(1.05);
   }
 }
 

@@ -6,9 +6,9 @@ import { PageTransition, Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About MASNRY",
   description:
-    "Learn about MASNRY, a personal creative development portfolio for projects, experiments, design, code, and digital work."
+    "Learn about MASNRY, a Brisbane creative developer building custom websites, digital products, 3D printing projects, and internet experiments."
 };
 
 const values = [

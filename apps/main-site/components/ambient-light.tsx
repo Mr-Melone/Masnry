@@ -62,6 +62,10 @@ export function AmbientLight() {
         className="galaxy-band absolute left-[-22%] top-[16%] h-[26rem] w-[145%] opacity-80"
         style={{ y: galaxyY, opacity: galaxyOpacity }}
       />
+      <motion.div
+        className="milky-way absolute left-[-28%] top-[20%] h-[24rem] w-[156%] rounded-[999px] opacity-70"
+        style={{ y: galaxyY, opacity: galaxyOpacity }}
+      />
       <div className="absolute inset-0">
         {stars.map(([left, top, opacity], index) => (
           <span

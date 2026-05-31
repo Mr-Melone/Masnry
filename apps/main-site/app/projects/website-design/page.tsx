@@ -7,9 +7,9 @@ import { PageTransition, Reveal } from "@/components/reveal";
 import { projects } from "@/content/projects";
 
 export const metadata: Metadata = {
-  title: "Website Design",
+  title: "Website Design Projects",
   description:
-    "Website demos, product concepts, and polished web builds in the MASNRY project archive."
+    "Website design demos and web development concepts by MASNRY, a Brisbane creative developer building custom small business websites."
 };
 
 export default function WebsiteDesignPage() {

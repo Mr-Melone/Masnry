@@ -10,20 +10,26 @@ export function Reveal({
 }: HTMLMotionProps<"div"> & { delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [hasEntered, setHasEntered] = useState(false);
 
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
 
-    const fallback = window.setTimeout(() => setVisible(true), 700);
+    const show = () => {
+      setVisible(true);
+      setHasEntered(true);
+    };
+    const fallback = window.setTimeout(show, 700);
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry?.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
+          show();
+        } else {
+          setVisible(false);
         }
       },
-      { rootMargin: "0px 0px -80px 0px", threshold: 0.1 }
+      { rootMargin: "0px 0px -5% 0px", threshold: 0.08 }
     );
 
     observer.observe(node);
@@ -40,9 +46,11 @@ export function Reveal({
       animate={
         visible
           ? { opacity: 1, y: 0, filter: "blur(0px)" }
-          : { opacity: 0, y: 18, filter: "blur(8px)" }
+          : hasEntered
+            ? { opacity: 0.68, y: 24, filter: "blur(6px)" }
+            : { opacity: 0, y: 34, filter: "blur(12px)" }
       }
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay }}
+      transition={{ duration: 0.82, ease: [0.16, 1, 0.22, 1], delay }}
       {...props}
     >
       {children}

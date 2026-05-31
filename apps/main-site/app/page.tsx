@@ -1,121 +1,156 @@
-import Image from "next/image";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Box, Code2, Monitor, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  Coffee,
+  MapPin,
+  Scissors,
+  SearchCheck,
+  ShieldCheck,
+  Sparkles,
+  Trophy
+} from "lucide-react";
 import { Badge, Button, Card, Container, Section } from "@masnry/ui";
 import { ProjectCard } from "@/components/project-card";
 import { PageTransition, ParallaxLayer, Reveal } from "@/components/reveal";
 import { projects } from "@/content/projects";
 
+export const metadata: Metadata = {
+  title: "MASNRY | Web Designer And Creative Developer In Brisbane",
+  description:
+    "MASNRY is a Brisbane-based creative development portfolio for custom websites, digital products, 3D printing projects, and internet experiments.",
+  alternates: {
+    canonical: "/"
+  },
+  openGraph: {
+    title: "MASNRY | Web Designer And Creative Developer In Brisbane",
+    description:
+      "A personal creative workshop for websites, digital products, experiments, and things built with care.",
+    url: "https://masnry.com"
+  }
+};
+
 const featuredProject = projects.find(
   (project) => project.slug === "barber-shop-demo"
 );
 
-const threads = [
+const pathways = [
   {
-    icon: Code2,
-    title: "Code",
-    body: "Interfaces, motion, systems, and frontend experiments."
+    icon: Coffee,
+    title: "Websites for cafes",
+    body: "Menus, location details, opening hours, and the nice little reasons people choose your place."
   },
   {
-    icon: Monitor,
-    title: "Web",
-    body: "Demo sites, personal pages, and small digital products."
+    icon: Scissors,
+    title: "Websites for barbers",
+    body: "Pricing, bookings, reviews, gallery shots, and a shop vibe that does not feel copied from 2017."
   },
   {
-    icon: Box,
-    title: "Objects",
-    body: "3D printing notes, practical parts, prototypes, and studies."
+    icon: Trophy,
+    title: "Websites for sports brands",
+    body: "Product-led pages, launch demos, waitlists, and clean storytelling around something people can buy."
   }
+];
+
+const credibilityNotes = [
+  ["Stack", "Next.js, TypeScript, Tailwind, Framer Motion, Vercel"],
+  ["Build habit", "Mobile-first, SEO-aware, documented, and ready to hand over"],
+  ["Local angle", "Brisbane-based, useful for small businesses that need a sharper web presence"]
 ];
 
 export default function HomePage() {
   return (
     <PageTransition>
-      <section className="relative grid min-h-[calc(100vh-4rem)] place-items-center overflow-hidden px-4 py-16">
+      <section className="relative mb-[-7rem] grid min-h-[calc(100vh-4rem)] place-items-center overflow-hidden px-4 pb-44 pt-16">
+        <div className="milky-way absolute left-[-40%] top-[18%] h-[28rem] w-[180%] rounded-[999px] opacity-80" />
         <div className="galaxy-band absolute left-[-34%] top-[18%] h-[30rem] w-[168%] opacity-70" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_42%,hsl(var(--primary)/0.18),transparent_28rem)]" />
-        <Reveal variant="mask">
-          <div className="relative inline-block">
-            <p className="absolute left-1 top-1 font-mono text-xs uppercase tracking-[0.34em] text-primary sm:left-3 sm:top-2 sm:text-sm">
-              welcome to
-            </p>
-            <h1 className="pt-8 font-display text-7xl font-semibold leading-none tracking-normal text-foreground sm:text-9xl lg:text-[12rem] xl:text-[15rem]">
-              MASNRY
-            </h1>
-          </div>
-        </Reveal>
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_52%_45%,hsl(var(--primary)/0.2),transparent_28rem),radial-gradient(ellipse_at_78%_36%,hsl(258_88%_62%/0.1),transparent_24rem)]" />
+        <div className="relative inline-block">
+          <p className="absolute left-1 top-1 font-mono text-xs uppercase tracking-[0.34em] text-primary sm:left-3 sm:top-2 sm:text-sm">
+            welcome to
+          </p>
+          <h1 className="pt-8 font-display text-7xl font-semibold leading-none tracking-normal text-foreground sm:text-9xl lg:text-[12rem] xl:text-[15rem]">
+            MASNRY
+          </h1>
+        </div>
+        <div className="absolute inset-x-0 bottom-0 h-72 bg-gradient-to-b from-transparent via-background/72 to-background" />
       </section>
 
-      <Section className="section-veil relative min-h-[calc(100vh-4rem)] overflow-hidden py-14 sm:py-20 lg:py-24">
-        <Container className="relative grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+      <Section className="section-veil relative pt-36">
+        <Container>
           <Reveal variant="mask">
-            <Badge className="border-primary/25 bg-primary/10 text-primary">
-              MASNRY / personal studio
-            </Badge>
-            <h2 className="text-balance mt-6 max-w-4xl font-display text-5xl font-semibold leading-[1.02] tracking-normal sm:text-6xl lg:text-7xl">
-              Building things for the internet.
-            </h2>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">
-              Projects, experiments, design, code, 3D printing, and digital work.
-              A place for what I make, what I am learning, and what is next.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button asChild size="lg">
-                <Link href="/projects">
-                  Browse projects <ArrowRight />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link href="/about">About MASNRY</Link>
-              </Button>
-            </div>
-            <div className="mt-10 flex flex-wrap gap-2">
-              {["Design", "Code", "3D printing", "Experiments", "Web demos"].map(
-                (item) => (
-                  <Badge key={item}>{item}</Badge>
-                )
-              )}
+            <div className="max-w-5xl">
+              <Badge className="border-primary/25 bg-primary/10 text-primary">
+                Brisbane / digital workshop
+              </Badge>
+              <h2 className="mt-6 text-balance font-display text-4xl font-semibold leading-tight sm:text-6xl">
+                I build websites, digital products, 3D printed projects, and
+                whatever else seems like a good idea at the time.
+              </h2>
+              <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">
+                MASNRY is part portfolio, part workshop, part tidy shelf for
+                experiments. The websites are the useful bit for businesses; the
+                rest is proof I enjoy making things properly.
+              </p>
             </div>
           </Reveal>
 
-          <ParallaxLayer distance={34}>
-            <div className="cinematic-panel noise-panel relative overflow-hidden rounded-lg p-3 transition duration-700 hover:-translate-y-1 hover:border-primary/40">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-md">
-                <Image
-                  src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1500&q=80"
-                  alt="Abstract dark digital workspace"
-                  fill
-                  priority
-                  className="object-cover opacity-[0.84]"
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/86 via-black/26 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 rounded-lg border border-white/10 bg-black/54 p-4 text-white backdrop-blur-xl">
-                  <p className="text-xs uppercase tracking-[0.2em] text-white/52">
-                    Current mode
-                  </p>
-                  <p className="mt-2 font-display text-2xl font-semibold">
-                    Interfaces, prototypes, and small experiments.
-                  </p>
-                </div>
-              </div>
+          <Reveal delay={0.08} variant="scale">
+            <div className="mt-10 grid gap-3 sm:grid-cols-3">
+              <Button asChild size="lg">
+                <Link href="/contact">
+                  Contact me <ArrowRight />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <Link href="/projects">
+                  Browse projects <Sparkles />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline">
+                <Link href="/about">About</Link>
+              </Button>
             </div>
-          </ParallaxLayer>
+          </Reveal>
         </Container>
       </Section>
 
       <Section className="section-veil py-12">
         <Container>
-          <Reveal>
-            <div className="cinematic-panel rounded-lg p-6 sm:p-8 lg:p-10">
-              <p className="max-w-5xl font-display text-2xl font-medium leading-snug text-foreground/90 sm:text-3xl">
-                MASNRY is a curated workspace:
-                a place to find and create polished builds, rough innovative ideas, visual systems,
-                useful objects, and digital fragments.
-              </p>
+          <div className="grid gap-5 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+            <Reveal>
+              <div>
+                <Badge>Useful paths</Badge>
+                <h2 className="mt-5 max-w-xl font-display text-3xl font-semibold sm:text-5xl">
+                  Start where it sounds like your thing.
+                </h2>
+                <p className="mt-5 leading-8 text-muted-foreground">
+                  Not a funnel. Just a few doors with signs on them.
+                </p>
+              </div>
+            </Reveal>
+            <div className="grid gap-4 md:grid-cols-3">
+              {pathways.map((pathway, index) => (
+                <Reveal key={pathway.title} delay={index * 0.09} variant="scale">
+                  <Card className="cinematic-panel h-full bg-transparent p-5 transition duration-500 hover:-translate-y-1 hover:border-primary/40">
+                    <pathway.icon className="size-6 text-primary" />
+                    <h3 className="mt-5 font-display text-xl font-semibold">
+                      {pathway.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                      {pathway.body}
+                    </p>
+                    <Link
+                      href="/contact"
+                      className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-primary"
+                    >
+                      Ask about this <ArrowRight className="size-4" />
+                    </Link>
+                  </Card>
+                </Reveal>
+              ))}
             </div>
-          </Reveal>
+          </div>
         </Container>
       </Section>
 
@@ -125,18 +160,18 @@ export default function HomePage() {
             <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
               <div>
                 <Badge>Featured build</Badge>
-                <h2 className="text-balance mt-5 max-w-3xl font-display text-3xl font-semibold tracking-normal sm:text-4xl">
-                  One project in focus.
+                <h2 className="text-balance mt-5 max-w-3xl font-display text-3xl font-semibold tracking-normal sm:text-5xl">
+                  A barber shop demo, built like a real business could use it.
                 </h2>
               </div>
               <Button asChild variant="outline">
-                <Link href="/projects">
-                  Open the archive <ArrowRight />
+                <Link href="/contact">
+                  Get a free website audit <SearchCheck />
                 </Link>
               </Button>
             </div>
-            <Reveal>
-              <ParallaxLayer distance={24}>
+            <Reveal variant="scale">
+              <ParallaxLayer distance={26}>
                 <ProjectCard project={featuredProject} variant="feature" />
               </ParallaxLayer>
             </Reveal>
@@ -144,50 +179,62 @@ export default function HomePage() {
         </Section>
       ) : null}
 
-      <Section className="section-veil py-16">
-        <Container>
-          <div className="grid gap-6 md:grid-cols-3">
-            {threads.map((thread, index) => (
-              <Reveal key={thread.title} delay={index * 0.06}>
-                <Card className="cinematic-panel h-full bg-transparent p-6">
-                  <thread.icon className="size-6 text-primary" />
-                  <h3 className="mt-5 font-display text-xl font-semibold">
-                    {thread.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-6 text-muted-foreground">
-                    {thread.body}
-                  </p>
-                </Card>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
       <Section className="section-veil pb-20 pt-8">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[1fr_0.75fr] lg:items-center">
-            <div>
-              <Badge className="border-primary/25 bg-primary/10 text-primary">
-                Archive first
-              </Badge>
-              <h2 className="text-balance mt-5 font-display text-3xl font-semibold sm:text-5xl">
-                The projects page is the center of the site.
-              </h2>
-            </div>
-            <div className="space-y-5">
-              <p className="leading-8 text-muted-foreground">
-                Website work is still part of MASNRY, but it sits beside the rest
-                of the creative output: experiments, systems, prototypes, notes,
-                and things that do not need to fit a neat category.
-              </p>
-              <Button asChild size="lg">
-                <Link href="/projects">
-                  View projects <Sparkles />
-                </Link>
-              </Button>
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <Reveal>
+              <div>
+                <Badge>Build notes</Badge>
+                <h2 className="mt-5 font-display text-3xl font-semibold sm:text-5xl">
+                  Quiet credibility. Less chest-beating, more receipts.
+                </h2>
+                <p className="mt-5 max-w-2xl leading-8 text-muted-foreground">
+                  I make websites that hopefully work harder than I do. The
+                  boring details still matter: responsive layouts, fast pages,
+                  clean deployment, and enough structure for the next version.
+                </p>
+              </div>
+            </Reveal>
+            <div className="grid gap-4">
+              {credibilityNotes.map(([label, value], index) => (
+                <Reveal key={label} delay={index * 0.08}>
+                  <Card className="cinematic-panel grid gap-4 bg-transparent p-5 sm:grid-cols-[10rem_1fr] sm:items-center">
+                    <div className="flex items-center gap-3 text-primary">
+                      {index === 2 ? (
+                        <MapPin className="size-5" />
+                      ) : (
+                        <ShieldCheck className="size-5" />
+                      )}
+                      <p className="text-xs font-medium uppercase tracking-[0.18em]">
+                        {label}
+                      </p>
+                    </div>
+                    <p className="leading-7 text-muted-foreground">{value}</p>
+                  </Card>
+                </Reveal>
+              ))}
             </div>
           </div>
+
+          <Reveal variant="scale">
+            <div className="mt-12 rounded-lg border border-primary/20 bg-primary/10 p-6 sm:p-8">
+              <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+                <div>
+                  <p className="font-display text-2xl font-semibold">
+                    Have a website that feels a bit tired?
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                    Send it over. I will tell you what I would improve first.
+                  </p>
+                </div>
+                <Button asChild size="lg">
+                  <Link href="/contact">
+                    Request a website redesign <ArrowRight />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </Reveal>
         </Container>
       </Section>
     </PageTransition>

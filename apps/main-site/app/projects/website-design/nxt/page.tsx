@@ -106,7 +106,7 @@ export default function NxtDemoPage() {
 
       <section id="top" className="relative min-h-screen pt-16">
         <Container className="grid min-h-[calc(100vh-4rem)] gap-12 py-12 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
-          <Reveal variant="mask">
+          <div>
             <Badge className="border-black/10 bg-black text-white">
               Football mini shinpads
             </Badge>
@@ -131,7 +131,7 @@ export default function NxtDemoPage() {
                 <Link href="#fit">See features</Link>
               </Button>
             </div>
-          </Reveal>
+          </div>
 
           <ParallaxLayer distance={38}>
             <div className="relative min-h-[32rem] overflow-hidden rounded-lg border border-black/10 bg-white shadow-2xl shadow-black/12 transition duration-700 hover:-translate-y-1">

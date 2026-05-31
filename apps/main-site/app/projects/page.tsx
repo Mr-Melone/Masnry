@@ -9,9 +9,9 @@ import { SectionHeading } from "@/components/section-heading";
 import { projectCategoryPages, projects } from "@/content/projects";
 
 export const metadata: Metadata = {
-  title: "Projects",
+  title: "Projects | Websites, Digital Experiments And 3D Printing",
   description:
-    "Browse the MASNRY archive of projects, experiments, demos, concepts, 3D printing, and digital work."
+    "Browse MASNRY projects including Brisbane website demos, digital products, coding experiments, 3D printing work, and creative builds."
 };
 
 export default function ProjectsPage() {
